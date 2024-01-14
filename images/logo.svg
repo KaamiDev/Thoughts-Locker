@@ -1,0 +1,13 @@
+<svg id="Component_1_1" data-name="Component 1 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="107" height="107" viewBox="0 0 107 107">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#007fff"/>
+      <stop offset="1" stop-color="#0093ff"/>
+    </linearGradient>
+  </defs>
+  <g id="Ellipse_1" data-name="Ellipse 1" fill="#3c3c3c" stroke="#0093ff" stroke-width="5">
+    <circle cx="53.5" cy="53.5" r="53.5" stroke="none"/>
+    <circle cx="53.5" cy="53.5" r="51" fill="none"/>
+  </g>
+  <path id="Icon_awesome-lock" data-name="Icon awesome-lock" d="M52.344,29.312H49.2V19.891a19.891,19.891,0,1,0-39.781,0v9.422H6.281A6.283,6.283,0,0,0,0,35.594V60.719A6.283,6.283,0,0,0,6.281,67H52.344a6.283,6.283,0,0,0,6.281-6.281V35.594A6.283,6.283,0,0,0,52.344,29.312Zm-13.609,0H19.891V19.891a9.422,9.422,0,0,1,18.844,0Z" transform="translate(24.058 16)" fill="url(#linear-gradient)"/>
+</svg>

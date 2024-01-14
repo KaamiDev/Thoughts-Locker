@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoughts Locker - Home</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-heading">
+            <img class="nav-image" src="images/logo.svg" />
+            <div class="nav-text">
+                <h1>Thoughts Locker</h1>
+                <h5>Document your thoughts.</h5>
+            </div>
+        </div>
+        <div class="nav-items">
+            <ul>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#about">FAQ</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li class="special"><a href="register.html">Sign up</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-heading">
+        <h1>Keep Track of Your <span id="typewriter">Thoughts.</span></h1>
+        <h3>At <span>Thoughts Locker</span>, we have redefined the traditional diary. Record <br />your thoughts any place, any time.</h3>
+        <div class="main-buttons">
+            <a href="#about">Learn More</a>
+            <a class="special" href="register.html">Sign up</a>
+        </div>
+    </div>
+    <div class="about-body" id="about">
+        <h2>What is Thoughts Locker?</h2>
+        <div class="about-cells-row">
+            <div class="about-cell special">
+                <img src="images/home-symbol-msg.svg" />
+                <div class="about-cell-text">
+                    <h3>What can I do with it?</h3>
+                    <p>Record your thoughts in the form of 120 character snippets typed up in the moment.</p>
+                </div>
+            </div>
+            <div class="about-cell">
+                <img src="images/home-symbol-lock.svg" />
+                <div class="about-cell-text">
+                    <h3>How can I trust it?</h3>
+                    <p>All your thoughts are safely encrypted. No one can see them but you, not even us!</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-cells-row">
+            <div class="about-cell">
+                <img src="images/home-symbol-globe.svg" />
+                <div class="about-cell-text">
+                    <h3>How can I access it?</h3>
+                    <p>Access through the website or the mobile app. Thoughts are synced automatically!</p>
+                </div>
+            </div>
+            <div class="about-cell special">
+                <img src="images/home-symbol-coins.svg" />
+                <div class="about-cell-text">
+                    <h3>What does it cost?</h3>
+                    <p>Our platform is 100% free! You can help support us by leaving a tip via PayPal or Patreon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-body">
+        © 2024 <strong>Thoughts Locker</strong>
+    </div>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script>
+        new Typewriter('#typewriter', {
+            strings: ['Thoughts.', 'Emotions.', 'Progress.', 'Opinions.'],
+            autoStart: true,
+            loop: true
+        });
+    </script>
+</body>
+</html>

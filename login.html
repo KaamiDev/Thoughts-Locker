@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoughts Locker - Login</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-heading">
+            <img class="nav-image" src="images/logo.svg" />
+            <div class="nav-text">
+                <h1>Thoughts Locker</h1>
+                <h5>Document your thoughts.</h5>
+            </div>
+        </div>
+        <div class="nav-items smaller">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="login.html">Login</a></li>
+                <li><a href="register.html">Sign up</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="login-body larger-margin">
+        <div class="login-about">
+            <h2>Start saving your thoughts.</h2>
+            <p>Welcome back to <span>Thoughts Locker</span>. Ready to <br />get something off your chest? Start by logging <br/>in using the form on the right, or sign up using <br \>the button below.</p>
+            <h2>Don't have an Account?</h2>
+            <a href="register.html">Sign up</a>
+        </div>
+        <div class="login-box">
+            <img src="images/home-symbol-lock.svg" />
+            <h3>Login below.</h3>
+            <input type="email" value="johnsmith@gmail.com" placeholder="Email" />
+            <input type="password" value="1234567" placeholder="Password" />
+            <a href="main.html">Login</a>
+        </div>
+    </div>
+    <div class="footer-body">
+        © 2024 <strong>Thoughts Locker</strong>
+    </div>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script>
+        new Typewriter('#typewriter', {
+            strings: ['Thoughts.', 'Emotions.', 'Progress.', 'Opinions.'],
+            autoStart: true,
+            loop: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoughts Locker - Sign up</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-heading">
+            <img class="nav-image" src="images/logo.svg" />
+            <div class="nav-text">
+                <h1>Thoughts Locker</h1>
+                <h5>Document your thoughts.</h5>
+            </div>
+        </div>
+        <div class="nav-items smaller">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li class="active"><a href="register.html">Sign up</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="login-body">
+        <div class="login-about">
+            <h2>It's Twitter for your thoughts!</h2>
+            <p>At <span>Thoughts Locker</span>, we have redefined the <br />traditional diary. Record your thoughts any place, <br />any time in the form of 120 character snippets <br />typed up in the moment.</p>
+            <h2>Already have an Account?</h2>
+            <a href="login.html">Login</a>
+        </div>
+        <div class="login-box">
+            <img src="images/home-symbol-lock.svg" />
+            <h3>Register below.</h3>
+            <input type="text" placeholder="Name" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Confirm Password" />
+            <a style="opacity: 0.5; cursor: not-allowed;" href="#">Sign up</a>
+        </div>
+    </div>
+    <div class="footer-body">
+        © 2024 <strong>Thoughts Locker</strong>
+    </div>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script>
+        new Typewriter('#typewriter', {
+            strings: ['Thoughts.', 'Emotions.', 'Progress.', 'Opinions.'],
+            autoStart: true,
+            loop: true
+        });
+    </script>
+</body>
+</html>

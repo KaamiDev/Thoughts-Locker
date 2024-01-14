@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoughts Locker - Home</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-heading">
+            <img class="nav-image" src="images/logo.svg" />
+            <div class="nav-text">
+                <h1>Thoughts Locker</h1>
+                <h5>Document your thoughts.</h5>
+            </div>
+        </div>
+        <div class="nav-items smaller">
+            <ul>
+                <li class="active"><a href="main.html">Home</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-body">
+        <div class="main-input-column">
+            <h1>Welcome back <span>John!</span></h1>
+            <p>What's on your mind today?</p>
+            <textarea onkeyup="count()" onkeydown="count()" onchange="count()" placeholder="Start typing here..."></textarea>
+            <div class="emoji-row">
+                <img onclick="emojiChange('emoji-happy.svg')" class="active" data-name="emoji-happy.svg" src="images/emoji-happy.svg" />
+                <img onclick="emojiChange('emoji-love.svg')" data-name="emoji-love.svg" src="images/emoji-love.svg" />
+                <img onclick="emojiChange('emoji-sad.svg')" data-name="emoji-sad.svg" src="images/emoji-sad.svg" />
+                <img onclick="emojiChange('emoji-cry.svg')" data-name="emoji-cry.svg" src="images/emoji-cry.svg" />
+                <img onclick="emojiChange('emoji-angry.svg')" data-name="emoji-angry.svg" src="images/emoji-angry.svg" />
+                <img onclick="emojiChange('emoji-sick.svg')" data-name="emoji-sick.svg" src="images/emoji-sick.svg" />
+                <img onclick="emojiChange('emoji-kiss.svg')" data-name="emoji-kiss.svg" src="images/emoji-kiss.svg" />
+            </div>
+            <div class="submit-row">
+                <div class="left-side">
+                    <p><i>0</i> / <span>120</span></p>
+                </div>
+                <div class="right-side">
+                    <img src="images/symbol-camera.svg" />
+                    <img src="images/symbol-attachment.svg" />
+                    <a onclick="submit()" href="#">Save Thought</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-recents-column">
+            <div class="recents-heading">
+                <h2>Recent Thoughts</h2>
+                <!-- <p><a>Browse All</a></p> -->
+            </div>
+        </div>
+    </div>
+    <div class="footer-body">
+        © 2024 <strong>Thoughts Locker</strong>
+    </div>
+    <script>
+        let thoughts = []
+        if(localStorage.getItem("thoughtsData") == null) {
+            localStorage.setItem("thoughtsData", '[]')
+        }
+        let selectedEmoji = 'emoji-happy.svg'
+        let charCount = 0
+        function emojiChange(emoji) {
+            selectedEmoji = emoji
+            document.querySelector('.emoji-row .active').classList.remove('active')
+            document.querySelector('[data-name="' + selectedEmoji + '"]').classList.add('active')
+        }
+        function count() {
+            let ta = document.querySelector('textarea')
+            charCount = ta.value.length
+            document.querySelector('.submit-row .left-side i').innerText = charCount
+            if(charCount > 120) {
+                document.querySelector('.submit-row .left-side p').style.color = '#eb655b'
+                document.querySelector('.submit-row .right-side a').style.cursor = 'not-allowed'
+                document.querySelector('.submit-row .right-side a').style.opacity = '0.5'
+            }
+            else {
+                document.querySelector('.submit-row .left-side p').style.color = '#CBCBCB'
+                document.querySelector('.submit-row .right-side a').style.cursor = 'pointer'
+                document.querySelector('.submit-row .right-side a').style.opacity = '1'
+            }
+        }
+        function saveStorage() {
+            localStorage.setItem("thoughtsData", JSON.stringify(thoughts))
+            if(thoughts == null || thoughts.length == 0) {
+                document.querySelector('.main-recents-column').innerHTML = '<div class="recents-heading"><h2>Recent Thoughts</h2></div><p>You have not saved any thoughts yet.</p>'
+                return;
+            }
+            document.querySelector('.main-recents-column').innerHTML = `<div class="recents-heading"><h2>Recent Thoughts</h2></div>` + thoughts.map((thought) => {
+                let d = new Date(thought.date)
+                return `<div data-date="${thought.date}" class="recent-cell">
+                <div class="recent-cell-top">
+                    <div class="recent-emoji">
+                        <img src="images/${thought.emoji}" />
+                    </div>
+                    <div class="recent-body">
+                        <p>${thought.content}</p>
+                    </div>
+                </div>
+                <div class="recent-cell-bottom">
+                    <p>${d.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'})} · ${d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+                    <a onclick="remove(${thought.date})">Delete</a>
+                </div>
+            </div>`
+            }).join('')
+        }
+        function getStorage() {
+            thoughts = JSON.parse(localStorage.getItem("thoughtsData"))
+            if(thoughts == null || thoughts.length == 0) {
+                document.querySelector('.main-recents-column').innerHTML = '<div class="recents-heading"><h2>Recent Thoughts</h2></div><p>You have not saved any thoughts yet.</p>'
+                return;
+            }
+            document.querySelector('.main-recents-column').innerHTML = `<div class="recents-heading"><h2>Recent Thoughts</h2></div>` + thoughts.map((thought) => {
+                let d = new Date(thought.date)
+                return `<div data-date="${thought.date}" class="recent-cell">
+                <div class="recent-cell-top">
+                    <div class="recent-emoji">
+                        <img src="images/${thought.emoji}" />
+                    </div>
+                    <div class="recent-body">
+                        <p>${thought.content}</p>
+                    </div>
+                </div>
+                <div class="recent-cell-bottom">
+                    <p>${d.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'})} · ${d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+                    <a onclick="remove(${thought.date})">Delete</a>
+                </div>
+            </div>`
+            }).join('')
+        }
+        function submit() {
+            if(charCount > 120 || charCount == 0) return;
+            thoughts.unshift({
+                emoji: selectedEmoji,
+                content: document.querySelector('textarea').value,
+                date: (new Date()).getTime()
+            })
+            saveStorage()
+            document.querySelector('textarea').value = ''
+            count()
+            document.querySelector('.recent-cell').classList.add('animate__animated', 'animate__bounceIn');
+        }
+        function remove(d) {
+            thoughts = thoughts.filter(x => x.date != d)
+            document.querySelector('[data-date="' + d + '"]').classList.add('animate__animated', 'animate__bounceOut');
+            document.querySelector('[data-date="' + d + '"]').addEventListener('animationend', () => {
+                saveStorage()
+            });
+        }
+        getStorage()
+    </script>
+</body>
+</html>
